@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+<h1>マイナーアーティストを見つけよう</h1>
+<h2>一覧ページ</h2>
+
+
+
+<h4>ジャンル選択</h4>
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+  <% Tag.all.each do |t| %>
+      <%= check_box :tag_ids, t.name %><%= t.name %>
+  <% end %>
+
+<h4>活動拠点</h4>
+  <% TagLocation.all.each do |l| %>
+        <%= check_box :tag_location_ids, l.place %><%= l.place %>
+  <% end %>
+
+
+<%= submit_tag '検索' %>
+<% end %>  
+
+
+<li><%= link_to "新規投稿へ", new_tweet_path %></li>
+
+<%= link_to '新しい順', tweets_path(sort: 'newest'), method: :get, class: (params[:sort] == 'newest' ? 'active' : '') %>
+<%= link_to '古い順', tweets_path(sort: 'oldest'), method: :get, class: (params[:sort] == 'oldest' ? 'active' : '') %>
+<%= link_to '得点が多い順', tweets_path(sort: 'highest_score'), method: :get, class: (params[:sort] == 'highest_score' ? 'active' : '') %> 
+
+<h3>投稿一覧</h3>
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <p><%= t.band_name %></p>
+      <%= t.user.email %>
+    <% if user_signed_in? %>
+        <% if current_user.already_liked?(t) %>
+            <%= button_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% else %>
+            <%= button_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+              <i class="far fa-heart"></i><%= t.likes.count %>
+            <% end %>
+        <% end %>
+    <% else %>
+      <i class="far fa-heart"></i><%= t.likes.count %>
+    <% end %>
+      
+      <%= link_to "詳細へ", tweet_path(t.id) %>
+      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>
+
+

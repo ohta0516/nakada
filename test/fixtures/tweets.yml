@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  band_name: MyString
+  explanation: MyText
+  genre: MyString
+  genre2: MyString
+  genre3: MyString
+  song_name: MyString
+  SNS_link: MyString
+
+two:
+  band_name: MyString
+  explanation: MyText
+  genre: MyString
+  genre2: MyString
+  genre3: MyString
+  song_name: MyString
+  SNS_link: MyString
