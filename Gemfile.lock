@@ -101,8 +101,9 @@ GEM
       dotenv (= 3.1.4)
       railties (>= 6.1)
     erubi (1.13.0)
-    ffi (1.17.0)
+    ffi (1.17.0-x64-mingw-ucrt)
     ffi (1.17.0-x64-mingw32)
+    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-accept (1.7.0)
@@ -155,12 +156,15 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.3)
+    nokogiri (1.16.7-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.16.7-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.9)
+    pg (1.5.9-x64-mingw-ucrt)
     pg (1.5.9-x64-mingw32)
     public_suffix (6.0.1)
     puma (5.6.9)
@@ -243,6 +247,7 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sqlite3 (1.7.3-x64-mingw-ucrt)
     sqlite3 (1.7.3-x64-mingw32)
     sqlite3 (1.7.3-x86_64-linux)
     ssrf_filter (1.0.8)
@@ -281,6 +286,7 @@ GEM
     zeitwerk (2.6.18)
 
 PLATFORMS
+  x64-mingw-ucrt
   x64-mingw32
   x86_64-linux
 
@@ -308,7 +314,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.7p220
+   ruby 3.1.6p260
 
 BUNDLED WITH
    2.5.18
