@@ -1,27 +1,24 @@
 {
-  "name": "Minor_band",
+  "name": "minor_band",
   "private": true,
   "dependencies": {
-    "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
+    "@rails/actioncable": "^7.2.200",
+    "@rails/activestorage": "^7.2.200",
+    "@rails/ujs": "^7.1.500",
     "@rails/webpacker": "5.4.4",
-    "babel-loader": "^8.2.2",
     "turbolinks": "^5.2.0",
-    "webpack": "4.46.0",
-    "webpack-cli": "3.3.12"
+    "webpack": "5.96.1",
+    "webpack-cli": "5.1.4"
   },
   "version": "0.1.0",
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "babel-loader": "^8.2.2",
-    "webpack-dev-server": "3"
+    "webpack-dev-server": "5"
   },
   "engines": {
-    "node": "16.14.0"
+    "node": "16.20.0"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "yarn@1.22.22"
 }
