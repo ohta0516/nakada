@@ -1,0 +1,22 @@
+databases:
+  - name: nakada_db
+    databaseName: nakada_db_t6l2
+    user: nakada
+    region: singapore
+
+services:
+  - type: web
+    name: nakada
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nakada_db
+          property: connectionString
+      - key: baeb3dc565f9ecb80fad64653fc4ab07
+        sync: false
+
