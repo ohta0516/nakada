@@ -68,3 +68,5 @@ gem 'cloudinary', '< 2.0.0'
 gem 'dotenv-rails'
 
 gem 'kaminari'
+
+gem 'net-smtp'

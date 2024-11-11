@@ -293,6 +293,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   kaminari
+  net-smtp
   pg (~> 1.4)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
