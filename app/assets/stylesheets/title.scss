@@ -14,19 +14,26 @@ h2{
     -webkit-text-stroke: 1px #ffffff;
   }
 
+body{
+  background: linear-gradient(180deg,#000000 0%, #000000 35%, #ffffff 35%, #ffffff 100%);
 
-  .box {
-    margin       : auto;
-    width        : auto;
-    height       : 130px;
-    background   : #000000;
-    transform: translate(0px,-230px);
-  }
+}
+
+.right{
+  transform: translate(0px,-10px);
+}
+
+.live>img{
+  width: 50%;
+  height: 30%;
+  transform: translate(700px,-500px);
+  border-radius: 30px;
+}
 
 
 .scroll-infinity__item{
     display: flex;
-    margin-right: 200px;
+    margin-right: 310px;
     padding: 10px;
     border: #ffffff ;
 }
@@ -56,8 +63,8 @@ h2{
       width: calc(100vw / 6);
     }
     .scroll-infinity__item>img {
-      width: 600px;
-      height: 300px;
+      width: 680px;
+      height: 380px;
       border-radius: 30px;
     }
 
@@ -86,9 +93,72 @@ h2{
         width: calc(100vw / 6);
       }
       .scroll-infinity__item>img {
-        width: 600px;
-        height: 300px;
+        width: 680px;
+        height: 380px;
         border-radius: 30px;
       }
 
-   
+.about{
+  color: red;
+  font-size: 350%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-left: 100px;
+  transform: translate(0px,-130px);
+}
+
+.shokai{
+  font-weight: bold;
+  color: #000000;
+  font-size: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-left: 115px;
+  transform: translate(0px,-130px);
+}
+
+.explain{
+  border: 5px solid rgb(220, 220, 220);
+  background-color: rgb(220, 220, 220);
+  border-radius: 10px;
+  word-wrap: normal;
+  width: 400px;
+  margin-left: 50px;
+  height: 300px;
+  transform: translate(0px,-110px);
+}
+
+
+.explain p{
+  font-weight: lighter;
+  margin: 10px;
+  padding: 10px;
+}
+
+
+.find{
+  border: 5px solid rgb(220, 220, 220);
+  background-color: rgb(220, 220, 220);
+  border-radius: 10px;
+  word-wrap: normal;
+  width: 400px;
+  margin-left: 50px;
+  height: 300px;
+  transform: translate(100px);
+}
+
+.find p{
+  margin: 100px;
+}
+
+.post{
+  border: 5px solid rgb(220, 220, 220);
+  background-color: rgb(220, 220, 220);
+  border-radius: 10px;
+  word-wrap: normal;
+  width: 400px;
+  margin-left: 50px;
+  height: 300px;
+  transform: translate(800px,-310px);
+}
+
+
+

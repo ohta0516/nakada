@@ -7,7 +7,7 @@
   <%= link_to "編集する", edit_user_registration_path %>
 <% end %>
 
-<h2>ユーザーの投稿一覧</h2>
+<h1>ユーザーの投稿一覧</h1>
 <% @user.tweets.each do |t| %>
   <%= t.band_name %>
   <%= image_tag t.image_url, size: "250x200" if t.image? %>

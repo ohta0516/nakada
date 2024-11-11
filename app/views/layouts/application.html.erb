@@ -14,16 +14,16 @@
 
   <body>
  <header>
- <h1>タイトル（未定）</h1>
+ <h1>MINOR MUSIC STATION</h1>
   <div class="header-list">
    <ul>
-   <li><%= link_to 'ホーム', :controller => "tweets", :action => "title" %></li>
+   <li><%= link_to 'HOME', :controller => "tweets", :action => "title" %></li>
     <% if user_signed_in? %>
-     <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
-     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+     <li><%= link_to "MY PAGE", user_path(current_user.id) %></li>
+     <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
     <% else %>
-     <li><%= link_to "新規登録", new_user_registration_path %></li>
-     <li><%= link_to "ログイン", new_user_session_path %></li>
+     <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+     <li><%= link_to "LOGIN", new_user_session_path %></li>
     <% end %> 
    </ul>
   </div>
