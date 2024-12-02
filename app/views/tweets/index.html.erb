@@ -1,32 +1,48 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
-<h1>マイナーアーティストを見つけよう</h1>
-<h2>一覧ページ</h2>
+
+<div class="postindex">POSTS INDEX</div>
+<div class="postindex2">－投稿一覧－</div>
+
+<div class="select">
+  <input type="checkbox" class="checkbox" id="genre-input" style="display: none;"/>
+          <label for="genre-input" id="genre-button">
+              <span>ジャンル選択</span>
+          </label>
+      <div id="genre">
+        <div>  
+          <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+            <% Tag.all.each do |t| %>
+                <%= check_box :tag_ids, t.name %><%= t.name %>
+            <% end %>
+          
+            <p>
+            <% TagLocation.all.each do |l| %>
+                  <%= check_box :tag_location_ids, l.place %><%= l.place %>
+            <% end %>
+            </p>
+          </div>
+          <%= submit_tag '検索' %>
+        <% end %>
+      </div>
+</div>
 
 
 
-<h4>ジャンル選択</h4>
-<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-  <% Tag.all.each do |t| %>
-      <%= check_box :tag_ids, t.name %><%= t.name %>
-  <% end %>
-
-<h4>活動拠点</h4>
-  <% TagLocation.all.each do |l| %>
-        <%= check_box :tag_location_ids, l.place %><%= l.place %>
-  <% end %>
 
 
-<%= submit_tag '検索' %>
-<% end %>  
-
-
-<li><%= link_to "新規投稿へ", new_tweet_path %></li>
-
-<%= link_to '新しい順', tweets_path(sort: 'newest'), method: :get, class: (params[:sort] == 'newest' ? 'active' : '') %>
-<%= link_to '古い順', tweets_path(sort: 'oldest'), method: :get, class: (params[:sort] == 'oldest' ? 'active' : '') %>
-<%= link_to '得点が多い順', tweets_path(sort: 'highest_score'), method: :get, class: (params[:sort] == 'highest_score' ? 'active' : '') %> 
-
-<h3>投稿一覧</h3>
+<div class="link">
+<p>
+ <div class="newest">
+  <%= link_to '新しい順', tweets_path(sort: 'newest'), method: :get, class: (params[:sort] == 'newest' ? 'active' : '') %>
+ </div>
+ <div class="oldest">
+  <%= link_to '古い順', tweets_path(sort: 'oldest'), method: :get, class: (params[:sort] == 'oldest' ? 'active' : '') %>
+ </div>
+ <div class="highest">
+  <%= link_to '得点が多い順', tweets_path(sort: 'highest_score'), method: :get, class: (params[:sort] == 'highest_score' ? 'active' : '') %>
+ </div>
+</p> 
+</div>
 
 <div class="tweets-container">
   <% @tweets.each do |t| %>
@@ -47,9 +63,21 @@
     <% else %>
       <i class="far fa-heart"></i><%= t.likes.count %>
     <% end %>
+      <%= link_to tweet_path(t.id) do %>
+       <div class="detaill">
+       <div class="leftleft"><%= image_tag '左.png', class:"logo-image", width: "35px", height: "29px" %></div>
+        <%= image_tag '再生ボタン.png', class:"logo-image", width: "50px", height: "42.5px" %>
+       <div class="rightright"><%= image_tag '右.png', class:"logo-image", width: "35px", height: "29px" %></div>
+       </div>
+      <% end %>
+
+      <% if user_signed_in? && current_user.id == t.user_id %>  
+        <%= button_to tweet_path(t.id), method: :delete, class: "delete-button" do %>
+          <%= image_tag 'ゴミ箱.jpg', class:"logo-image", width: "50px", height: "50px" %>
+        <% end %>
       
-      <%= link_to "詳細へ", tweet_path(t.id) %>
-      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+      <% end %>
+      
     </div>
   <% end %>
 </div>

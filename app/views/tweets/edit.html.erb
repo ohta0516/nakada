@@ -1,56 +1,88 @@
-<%= form_for @tweet do |f| %>
+
+<div class="white-body">
+  <div class="postshow">POST EDIT</div>
+  <div class="postshow2">－投稿編集－</div>
 
 
-  
-  <div class="field">
-    <%= f.label :band_name %>
-    <%= f.text_field :band_name, :size => 30 %>
-  </div>
+  <%= form_for @tweet do |f| %>
+    
+    <div class='form-group'>
+    <h1>ジャンル</h1>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+          <div class='form-check'>
+              <%= tag.label class: 'form-check-label' do %>
+                  <%= tag.check_box class: 'form-check-input' %>
+                  <%= tag.text %>
+              <% end %>
+          </div>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
+    <div class='form-group'>
+    <h1>活動場所</h1>
+      <%= f.collection_check_boxes(:tag_location_ids, TagLocation.all, :id, :place) do |tag| %>
+          <div class='form-check'>
+              <%= tag.label class: 'form-check-label' do %>
+                  <%= tag.check_box class: 'form-check-input' %>
+                  <%= tag.text %>
+              <% end %>
+          </div>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :explanation  %>
-    <%= f.text_area :explanation, :size => "30x2" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :song_name %>
-    <%= f.text_field :song_name, :size => 30 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :SNS_link %>
-    <%= f.text_field :SNS_link, :size => 30 %>
-  </div>
-
-  <h3>ジャンル選択</h3>
-<div class='form-group'>
-  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-      <div class='form-check'>
-          <%= tag.label class: 'form-check-label' do %>
-              <%= tag.check_box class: 'form-check-input' %>
-              <%= tag.text %>
-          <% end %>
+  <div class="fields">
+      <div class="image">
+        <%= f.label :画像 %>
+        <%= f.file_field :image, id: 'image_input' %>
+        <div id="image_preview_container">
+          <img id="image_preview" src="#" alt="プレビュー" style="display:none; max-height:400px; margin-top: 10px;" />
+        </div>
       </div>
-  <% end %>
-</div>
-
-<h3>活動拠点</h3>
-<div class='form-group'>
-  <%= f.collection_check_boxes(:tag_location_ids, TagLocation.all, :id, :place) do |tag| %>
-      <div class='form-check'>
-          <%= tag.label class: 'form-check-label' do %>
-              <%= tag.check_box class: 'form-check-input' %>
-              <%= tag.text %>
-          <% end %>
+    
+    <div class="youso">
+      <div class="name">
+        <%= f.label :アーティスト名 %>
+        <%= f.text_field :band_name, :size => 30 %>
       </div>
+      <div class="explanations">
+        <%= f.label :説明 %>
+        <%= f.text_area :explanation, :size => "30x2" %>
+      </div>
+      
+      <div class="song">
+        <%= f.label :代表曲 %>
+        <%= f.text_field :song_name, :size => 30 %>
+      </div>
+
+      <div class="SNS">
+        <%= f.label :SNSリンク %>
+        <%= f.text_field :SNS_link, :size => 30 %>
+      </div>
+    </div>
+  </div> 
+
+    <div class="toukou"><%= f.submit "投稿する" %></div>
   <% end %>
+
+  <%= link_to tweets_path do %>
+  <div class="modoru"><%= image_tag 'リプレイ.png', class:"logo-image", width: "100px", height: "100px" %></div>
+  <% end %>
+  <div class="modoruu">投稿一覧に戻る</div>
+
+
+  <script>
+    document.getElementById('image_input').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const preview = document.getElementById('image_preview');
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
 </div>
-
-
-    <%= f.submit "編集する" %>
-  <% end %>

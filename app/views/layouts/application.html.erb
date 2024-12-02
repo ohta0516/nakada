@@ -14,22 +14,59 @@
 
   <body>
  <header>
- <h1>MINOR MUSIC STATION</h1>
+ <li>MINOR MUSIC STATION</li>
   <div class="header-list">
    <ul>
-   <li><%= link_to 'HOME', :controller => "tweets", :action => "title" %></li>
     <% if user_signed_in? %>
      <li><%= link_to "MY PAGE", user_path(current_user.id) %></li>
-     <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+     <li><%= button_to 'LOGOUT', destroy_user_session_path, method: :delete , class: "basic-button" %></li>
     <% else %>
-     <li><%= link_to "SIGN UP", new_user_registration_path %></li>
-     <li><%= link_to "LOGIN", new_user_session_path %></li>
+     <li><%= link_to "SIGN UP", new_user_registration_path, class: "basic-button"  %></li>
+     <li><%= button_to "LOGIN", new_user_session_path, class: "basic-button"  %></li>
     <% end %> 
    </ul>
   </div>
  </header>
+
+ <div class ="hamberger-body">
+ <input type="checkbox" id="overlay-input" />
+ <label for="overlay-input" id="overlay-button"><span></span></label>
+ <div id="overlay">
+     <div class ="overlay-containar">
+         <div class ="menu-containar">
+         <!-- ラジオボタン（ココは非表示にする） -->
+             <input type="radio" name="tab-radio" class="tab-radio" id="tab01" checked>
+             <input type="radio" name="tab-radio" class="tab-radio" id="tab02">
+             <input type="radio" name="tab-radio" class="tab-radio" id="tab03">
+             <!-- タブメニュー -->
+             <div class="tab-containar" style="--r:150">
+                 <!-- 円の子要素-->
+                 <div style="--a:120"><label for="tab01" class="tab-menu" id="tabMenu01">HOME</label></div>
+                 <div style="--a:240"><label for="tab02" class="tab-menu" id="tabMenu02">INDEX</label></div>
+                 <div style="--a:360"><label for="tab03" class="tab-menu" id="tabMenu03">POST</label></div>
+             </div>
+             <div class="tab-content-item" id="tabContent01" style="--r:150">
+                 <div style="--a:270"><%= link_to "タイトルページ", tweets_title_path, class: "basic" %></div>
+                 
+              
+             </div>
+             <div class="tab-content-item" id="tabContent02" style="--r:150">
+                 <div style="--a:270"><%= link_to "投稿一覧", tweets_path, class: "basic" %></div>
+                 
+                 
+             </div>
+             <div class="tab-content-item" id="tabContent03" style="--r:150">
+                 <div style="--a:270"><%= link_to "投稿する", new_tweet_path, class: "basic" %></div>
+                 
+                 
+             </div>
+         </div>
+     </div>
+ </div>
+
  <main>
   <%= yield %>
  </main>
 </body>
 </html>
+

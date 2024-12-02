@@ -23,8 +23,17 @@ class TweetsController < ApplicationController
           end
           tweet_ids = tweet_ids.uniq
           @tweets = @tweets.where(id: tweet_ids) if tweet_ids.present?
+          @tweets.uniq
         end
-
+        @sort_option = params[:sort] || 'newest'
+        @tweets = case @sort_option
+                 when 'oldest'
+                   @tweets = @tweets.sort_by { |tweet| tweet.created_at }
+                 when 'highest_score'
+                   @tweets.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+                 else
+                   @tweets = @tweets.sort_by { |tweet| tweet.created_at }.reverse
+                 end
 
     end
 

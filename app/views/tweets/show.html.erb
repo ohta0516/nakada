@@ -1,44 +1,66 @@
-<h1>投稿リスト</h1>
-<h3>Tweet詳細</h3>
-<div class="tweet">
-  <p><%= @tweet.band_name %></p>
-  <%= image_tag @tweet.image_url, size: "250x200" if @tweet.image? %>
-  <p>代表曲：<%= @tweet.song_name %></p>
-  <%= @tweet.explanation %>
-  <li><%= @tweet.SNS_link %></li>
-  
-  
-  <% if user_signed_in? %>
-      <% if current_user.already_liked?(@tweet) %>
-        <%= button_to tweet_like_path(@tweet), method: :delete do %>
-          <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+<div class="white-body">
+  <div class="postshow">POST DETAIL</div>
+  <div class="postshow2">－投稿詳細－</div>
+
+  <div class="image_tag">
+    <%= image_tag @tweet.image_url, size: "250x200" if @tweet.image? %>
+  </div>
+  <div class="band_name">
+    <%= @tweet.band_name %>
+  </div>
+  <div class="song_name">
+    代表曲：<%= @tweet.song_name %>
+  </div>
+
+  <div class="jenree">ジャンル</div>
+  <div class="tagname">
+    <% @tweet.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
+  </div>
+
+  <div class="location">活動場所</div>
+  <% @tweet.tag_locations.each do |tag_location| %>
+  <div class="taglocation">
+    <%= tag_location.place %>
+  </div>
+  <% end %>
+
+  <div class="sns">
+  <p>聴いてみる</p>
+    <%= link_to @tweet.SNS_link do %><%= image_tag '再生ボタン.png', class: "logo-image", width: "100px", height: "85px" %></div>
+    <% end %>
+
+  </div>
+
+
+  <div class="explanation">
+    <%= @tweet.explanation %>
+  </div>
+
+    
+  <div class="likelike">
+    <% if user_signed_in? %>
+        <% if current_user.already_liked?(@tweet) %>
+        
+          <%= button_to tweet_like_path(@tweet), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+          <% end %>
+        <% else %>
+          <%= button_to tweet_likes_path(@tweet), method: :post do %>
+            <i class="far fa-heart"></i><%= @tweet.likes.count %>
+          <% end %>
         <% end %>
       <% else %>
-        <%= button_to tweet_likes_path(@tweet), method: :post do %>
-          <i class="far fa-heart"></i><%= @tweet.likes.count %>
-        <% end %>
+      <i class="far fa-heart"></i><%= @tweet.likes.count %>
+      
       <% end %>
-    <% else %>
-    <i class="far fa-heart"></i><%= @tweet.likes.count %>
-    <% end %>
-  
+    </div>
+
+
+
+        <% if user_signed_in? && current_user.id == @tweet.user_id %>  
+            <div class="backtoedit"><%= link_to "編集する", edit_tweet_path(@tweet.id) %></div>
+        <% end %>
+    <div class="backtoindex"><%= link_to "戻る", tweets_path %></div>
 </div>
-
-<h4>ジャンル</h4>
-<% @tweet.tags.each do |tag| %>
-  <span><%= tag.name %></span>
-<% end %>
-
-<h4>活動場所</h4>
-<% @tweet.tag_locations.each do |tag_location| %>
-  <span><%= tag_location.place %></span>
-<% end %>
-
-<h4>いいねしたユーザー</h4>
-<% @tweet.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
-
-
-<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
-<%= link_to "Tweet一覧に戻る", tweets_path %>

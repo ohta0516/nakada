@@ -1,3 +1,6 @@
+
+
+
 h3{
     color: rgb(0, 0, 0);
     transform: translate(0px,-200px);
@@ -8,15 +11,41 @@ h3{
 
 h2{
     color: rgb(0, 0, 0);
-    transform: translate(20px,-250px);
+    transform: translate(20px,-230px);
     font-size: 400%;
     white-space: nowrap;
     -webkit-text-stroke: 1px #ffffff;
+    width: fit-content;
   }
 
-body{
-  background: linear-gradient(180deg,#000000 0%, #000000 35%, #ffffff 35%, #ffffff 100%);
 
+.title-body{
+  background: linear-gradient(180deg,#000000 0%, #000000 30%, #ffffff 30%, #ffffff 100%);
+  width: 100%;
+}
+
+.titlepage{
+  transform: translate(0px,100px);
+}
+
+.findd{
+  color: rgb(255, 0, 0);
+  font-size: 300%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  transform: translate(250px,100px);
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+}
+
+.share{
+  color: rgb(255, 0, 0);
+  font-size: 300%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  transform: translate(950px,40px);
+  position: relative;
+  z-index: 2;
+  width: fit-content;
 }
 
 .right{
@@ -24,11 +53,22 @@ body{
 }
 
 .live>img{
-  width: 50%;
+  width: 40%;
   height: 30%;
-  transform: translate(700px,-500px);
+  transform: translate(800px,-250px);
   border-radius: 30px;
+  border: solid 5px #000000;
 }
+
+.drum>img{
+  width: 40%;
+  height: 30%;
+  transform: translate(100px,-300px);
+  border-radius: 30px;
+  border: solid 5px #000000;
+}
+
+
 
 
 .scroll-infinity__item{
@@ -49,7 +89,6 @@ body{
     .scroll-infinity__wrap {
       display: flex;
       overflow: hidden;
-      
     }
     .scroll-infinity__list {
       display: flex;
@@ -102,8 +141,9 @@ body{
   color: red;
   font-size: 350%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-left: 100px;
-  transform: translate(0px,-130px);
+  margin-left: 80px;
+  transform: translate(20px,70px);
+  width: fit-content;
 }
 
 .shokai{
@@ -111,54 +151,121 @@ body{
   color: #000000;
   font-size: 100%;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin-left: 115px;
-  transform: translate(0px,-130px);
+  margin-left: 100px;
+  transform: translate(0px,70px);
 }
 
-.explain{
-  border: 5px solid rgb(220, 220, 220);
-  background-color: rgb(220, 220, 220);
-  border-radius: 10px;
-  word-wrap: normal;
-  width: 400px;
-  margin-left: 50px;
-  height: 300px;
-  transform: translate(0px,-110px);
-}
+
 
 
 .explain p{
-  font-weight: lighter;
+  font-weight: bolder;
   margin: 10px;
+  margin-left: 70px;
   padding: 10px;
+  width: 650px;
+  transform: translate(20px,110px);
+}
+
+.explain2 p{
+  font-weight: bolder;
+  margin: 10px;
+  margin-left: 50px;
+  padding: 10px;
+  width: 650px;
+  transform: translate(700px,400px);
+}
+
+.explain3 p{
+  font-weight: bolder;
+  margin: 10px;
+  margin-left: 50px;
+  padding: 10px;
+  width: 650px;
+  transform: translate(350px,-200px);
 }
 
 
 .find{
-  border: 5px solid rgb(220, 220, 220);
-  background-color: rgb(220, 220, 220);
+  border: 5px solid rgb(0, 0, 0);
   border-radius: 10px;
   word-wrap: normal;
-  width: 400px;
+  width: 500px;
   margin-left: 50px;
   height: 300px;
-  transform: translate(100px);
+  transform: translate(100px,-100px);
+  position: relative;
+  z-index: 1;
 }
 
 .find p{
   margin: 100px;
+  transform: translate(0px,60px);
 }
 
 .post{
-  border: 5px solid rgb(220, 220, 220);
-  background-color: rgb(220, 220, 220);
+  border: 5px solid rgb(0, 0, 0);
   border-radius: 10px;
   word-wrap: normal;
-  width: 400px;
+  width: 500px;
   margin-left: 50px;
   height: 300px;
-  transform: translate(800px,-310px);
+  transform: translate(800px,-410px);
 }
 
+.post p{
+  margin: 100px;
+  transform: translate(0px,60px);
+}
 
+a{
+  color: #000000;
+}
 
+.cp_arrows {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.cp_arrows .cp_arrow {/*矢印を配置するベースの設定*/
+  position: absolute;
+  width: 60px;
+  height: 10px;
+  opacity: 0;/*スタートは透明*/
+  transform: scale(0.3);/*スタートは30%に縮小*/
+  animation: arrow-move07 3s ease-out infinite;
+}
+.cp_arrows .cp_arrow:first-child {/*1秒ずらしてアニメーション*/
+  animation: arrow-move07 3s ease-out 1s infinite;
+}
+.cp_arrows .cp_arrow:nth-child(2) {/*2秒ずらしてアニメーション*/
+  animation: arrow-move07 3s ease-out 2s infinite;
+}
+.cp_arrows .cp_arrow:before,
+.cp_arrows .cp_arrow:after {/*矢印全体の設定*/
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 100%;
+  background: #000000;
+  border-radius: 2px;
+}
+.cp_arrows .cp_arrow:before {/*矢印左の線の位置と傾斜*/
+  left: 1px;
+  transform: skewY(30deg);
+}
+.cp_arrows .cp_arrow:after {/*矢印左の線の位置と傾斜*/
+  right: 1px;
+  transform: skewY(-30deg);
+}
+@keyframes arrow-move07 {
+   25% { opacity: 0.6;}
+   43% { transform: translateY(1em); opacity: 0.8;}
+   62% { transform: translateY(2em); opacity: 1;}
+  100% { transform: translateY(3em) scale(0.5); opacity: 0;}
+}

@@ -1,12 +1,97 @@
 
+body{
+  background-color: white;
+  height: 2000px;
+}
+
+.link{
+  width: 100px;
+  transform: translate(1200px,-100px);
+  height: 40px;
+  margin: 5px;
+  right: 5em;
+}
+
+.link p{
+  text-align: center;
+  transform: translate(0px,10px);
+}
+
+
+.postindex{
+  color: red;
+  font-size: 350%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.postindex2{
+  font-weight: bold;
+  color: #000000;
+  font-size: 100%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#genre-button {
+}
+
+#genre-button span {
+  height: fit-content;
+  width: fit-content;
+  border-radius: 2px;
+  color: #000000;
+  position: relative;
+  display: block;
+}
+
+#genre-button {
+  top: -10px;
+  visibility: visible;
+}
+
+#genre-button {
+  top: 10px;
+}
+
+
+#genre-button:hover span, #genre-button:hover span:before, #genre-button:hover span:after {
+  background: #ffffff;
+}
+
+
+
+input[type=checkbox]:checked ~ #genre {
+  visibility: visible; 
+  input [type="checkbox"]{display:block}
+}
+
+input[type=checkbox]:checked ~ #genre-button:hover span, input[type=checkbox]:checked ~ #genre-button span {
+  background: transparent;    
+}
+
+
+#genre {
+  height: fit-content;
+  width: fit-content;
+  background: #ffffff;
+  visibility: hidden;
+}
+
+#genre.active {
+}
 
 .tweets-container {
     display: flex;
     flex-wrap: wrap;
     width: 70%;
     margin: 10px auto;
-    justify-content: left;
+    justify-content: center;
+    transform: translate(0px,-30px);
   }
+
   h3 {
     width: 140px;
     margin: 20px;
@@ -14,23 +99,30 @@
 
 
   h1{
-    color: #25f14e;
+    color: #000000;
   }
 
   h2{
-    color: #25f14e;
+    color: #000000;
   }
 
   h4{
-    color: #25f14e;
+    color: #000000;
   }
+
   .tweet {
     border: solid black;
-    border-radius: 30px;
-    background-color: #25f14e;
+    border-radius: 20px;
+    background-color: #ffffff;
     margin: 10px;
     padding: 20px;
   }
+
+  .tweet>img {
+    border-radius: 20px;
+    border: solid #000000;
+  }
+
   .main-box {
     margin: 5px 0;
     display: flex;
@@ -41,18 +133,80 @@
     justify-content: flex-end;
   }
 
-  
-  p {
-    font-size: large;
-    font-weight: 900;
-  }
-
   a {
-    color: rgb(8, 8, 8); 
+    color: rgb(0, 0, 0); 
     text-decoration: none; 
+    font-weight: bolder;
   }
 
   li{
     font-size: larger;
     font-weight: 600;
   }
+
+  .select{
+    margin-left: 60px;
+    transform: translate(0px,50px);
+  }
+
+  .select p{
+    font-weight: lighter;
+  }
+
+  span{
+    font-weight: bolder;
+    font-size: 150%;
+  }
+
+.newest{
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  margin: 10px;
+  font-size: large;
+  font-weight: bolder;
+  border:  solid #000000;
+  border-radius: 10px;
+}
+
+.oldest{
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  margin: 10px;
+  font-size: large;
+  font-weight: bolder;
+  border:  solid #000000;
+  border-radius: 10px;
+}
+
+.highest{
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  margin: 10px;
+  font-size: large;
+  font-weight: bolder;
+  border:  solid #000000;
+  border-radius: 10px;
+}
+
+.detaill{
+  margin-left: 47px;
+  max-width: 50px;
+  display: flex;
+}
+
+.rightright{
+  margin: 8px;
+}
+
+.leftleft{
+  margin: 8px;
+}
+
+.delete-button{
+  background-color: #ffffff;
+  border: none;
+}
+

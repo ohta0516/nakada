@@ -2,67 +2,90 @@
 
 
 
+<div class="title-body">
+
+
+  <div class="box"></div>
+
+
+  <div class="scroll-infinity">
+  <div class="scroll-infinity__wrap">
+    <ul class="scroll-infinity__list scroll-infinity__list--left">
+      <li class="scroll-infinity__item"><%= image_tag 'pk.jpg', class:"logo-image" %></li>                        
+      <li class="scroll-infinity__item"><%= image_tag 'kobore.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'wod.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag '36.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'hakubi.jpg', class:"logo-image" %></li>
+    </ul>
+    <ul class="scroll-infinity__list scroll-infinity__list--left">
+      <li class="scroll-infinity__item"><%= image_tag 'pk.jpg', class:"logo-image" %></li>                        
+      <li class="scroll-infinity__item"><%= image_tag 'kobore.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'wod.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag '36.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'hakubi.jpg', class:"logo-image" %></li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="right">
+  <div class="scroll-infinity">
+  <div class="scroll-infinity__wrap">
+    <ul class="scroll-infinity__list scroll-infinity__list--right">
+      <li class="scroll-infinity__item"><%= image_tag '短編.jpg', class:"logo-image" %></li>                        
+      <li class="scroll-infinity__item"><%= image_tag 'the.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'push.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'なき.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'roman.jpg', class:"logo-image" %></li>
+
+    </ul>
+    <ul class="scroll-infinity__list scroll-infinity__list--right">
+      <li class="scroll-infinity__item"><%= image_tag '短編.jpg', class:"logo-image" %></li>                        
+      <li class="scroll-infinity__item"><%= image_tag 'the.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'push.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'なき.jpg', class:"logo-image" %></li>
+      <li class="scroll-infinity__item"><%= image_tag 'roman.jpg', class:"logo-image" %></li>
+    </ul>
+  </div>
+  </div>
+  </div>
 
 
 
+  <h3>NEW MUSIC</h3>
+  <h2>NEW ADVENTURE</h2>
 
-
-
-<div class="scroll-infinity">
-<div class="scroll-infinity__wrap">
-  <ul class="scroll-infinity__list scroll-infinity__list--left">
-    <li class="scroll-infinity__item"><%= image_tag 'pk.jpg', class:"logo-image" %></li>                        
-    <li class="scroll-infinity__item"><%= image_tag 'kobore.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'wod.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag '36.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'hakubi.jpg', class:"logo-image" %></li>
-  </ul>
-  <ul class="scroll-infinity__list scroll-infinity__list--left">
-    <li class="scroll-infinity__item"><%= image_tag 'pk.jpg', class:"logo-image" %></li>                        
-    <li class="scroll-infinity__item"><%= image_tag 'kobore.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'wod.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag '36.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'hakubi.jpg', class:"logo-image" %></li>
-  </ul>
+<div class="cp_arrows">
+  <div class="cp_arrow"></div>
+  <div class="cp_arrow"></div>
+  <div class="cp_arrow"></div>
 </div>
+
+  <div class="titlepage">
+    <div class="about">ABOUT</div>
+
+    <div class="shokai">－サイト紹介－</div>
+
+    <div class="explain"><p>このサイトは、新しい音楽との出会いを求める人や、自分が応援している無名アーティストを他の人に紹介したい人のために作られたプラットフォームです。
+    <p></div>
+
+    <div class="explain2"><p>才能あふれるアーティストや素晴らしい楽曲はたくさん存在していますが、その多くは広まることなく埋もれてしまうことが多いのが現実です。
+    <p></div>
+
+    <div class="live"><%= image_tag 'headphone.jpg', class:"logo-image" %></div>
+    <div class="drum"><%= image_tag 'drum.webp', class:"logo-image" %></div>
+
+    <div class="explain3"><p>このサイトでは、音楽の発見と共有を通じて、まだ知られていないアーティストたちを応援し、日常に新しい音楽の楽しみをプラスするきっかけを提供します。
+    <p></div>
+
+
+      <div class="findd">FIND</div>
+      <div class="share">SHARE</div>
+
+
+      <div class="find"><p><%= link_to "アーティストをみつける", tweets_path %></p></div>
+
+    
+      <div class="post"><p><%= link_to "アーティストを投稿する", new_tweet_path %></p></div>
+  </div>
 </div>
-
-<div class="right">
-<div class="scroll-infinity">
-<div class="scroll-infinity__wrap">
-  <ul class="scroll-infinity__list scroll-infinity__list--right">
-    <li class="scroll-infinity__item"><%= image_tag '短編.jpg', class:"logo-image" %></li>                        
-    <li class="scroll-infinity__item"><%= image_tag 'the.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'push.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'なき.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'roman.jpg', class:"logo-image" %></li>
-
-  </ul>
-  <ul class="scroll-infinity__list scroll-infinity__list--right">
-    <li class="scroll-infinity__item"><%= image_tag '短編.jpg', class:"logo-image" %></li>                        
-    <li class="scroll-infinity__item"><%= image_tag 'the.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'push.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'なき.jpg', class:"logo-image" %></li>
-    <li class="scroll-infinity__item"><%= image_tag 'roman.jpg', class:"logo-image" %></li>
-  </ul>
-</div>
-</div>
-</div>
-
-
-
-<h3>NEW MUSIC</h3>
-<h2>NEW ADVENTURE</h2>
-
-
-<div class="about">ABOUT</div>
-
-<div class="shokai">－サイト紹介－</div>
-
-<div class="explain"><p>説明文あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああaaaa<p></div>
-
-<div class="live"><%= image_tag '3markets.jpg', class:"logo-image" %></div>
-
-<div class="find"><p><%= link_to "アーティストを見つける", tweets_path %></p></div>
-<div class="post"><p><%= link_to "アーティストを投稿する", new_tweet_path %></p></div>
 

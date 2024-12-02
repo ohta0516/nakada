@@ -29,20 +29,32 @@
     align-items: center;
   }
 
-
+.basic-button{
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+}
 
 
   body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
       Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     background-color: #ffffff;
+
   }
 
-
+.white-body{
+  background-color: #ffffff;
+  height: 100%;
+}
 
   header h1 {
     color: rgb(255, 255, 255);
     margin-left: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 
 
@@ -50,16 +62,308 @@
     color: rgb(255, 255, 255); 
     text-decoration: none; 
     background-color: #000000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+
+  .basic{
+    color: #FFFFFF;
+    font-weight: bolder;
+  }
+
 
 
   header ul {
     display: flex;
-    margin-right: 30px;
+    margin-right: 100px;
     background-color: rgb(0, 0, 0);
   }
 
   header li {
+    color: #ffffff;
     list-style: none;
-    margin-left: 60px;
+    margin-left: 30px;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+
+  .hamberger-body {
+    background: #ffffff;
+    margin: 0;
+    font-family: arial;
+    width: 100vw;
+    height: 100vh;
+    animation: bugfix infinite 1s;
+    -webkit-animation: bugfix infinite 1s;
+  }
+  @keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  @-webkit-keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  #overlay-button {
+    background-color: rgb(0, 0, 0);
+    border-radius: 30%;
+    position: absolute;
+    right: 3em;
+    top: 0.8em;
+    padding: 26px 11px;
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+  }
+  #overlay-button span {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    position: relative;
+    display: block;
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button span:before {
+    top: -10px;
+    visibility: visible;
+  }
+  #overlay-button span:after {
+    top: 10px;
+  }
+  #overlay-button span:before, #overlay-button span:after {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    position: absolute;
+    content: "";
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+    background: #FFFFFF;
+  }
+
+  #overlay-input {
+    display: none;
+  }
+
+  input[type=checkbox]:checked ~ #overlay {
+    visibility: visible;
+  }
+  input[type=checkbox]:checked ~ #overlay-button:hover span, input[type=checkbox]:checked ~ #overlay-button span {
+    background: transparent;
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:before {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:after {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  #overlay {
+    height: 100vh;
+    width: 100vw;
+    background: #FFFFFF;
+    z-index: 2;
+    visibility: hidden;
+    position: fixed;
+  }
+  #overlay.active {
+  }
+.overlay-containar{
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* 二つのディスク入れてる部分*/
+.menu-containar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 600px;
+    height: 300px;
+}
+/* 円にするためにやってる
+https://untype.jp/blog/202407261600
+*/
+.tab-containar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--r) * 2px);
+    height: calc(var(--r) * 2px);
+/* 円にするためにやってる https://untype.jp/blog/202407261600*/
+    border: 125px solid #FC0303;
+/* 円にするためにやってる https://untype.jp/blog/202407261600*/
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform-origin: center -1px;
+    animation: Rotation 2s ease forwards;
+    div {
+        --a2: calc(var(--a) * 1deg - 90deg);
+        --x: calc(cos(var(--a2)) * (var(--r) - 35) * 1px);
+        --y: calc(sin(var(--a2)) * (var(--r) - 35) * 1px);
+        position: absolute;
+        color: #FFFFFF;
+        font: 700 50px / 1 Impact;
+        translate: var(--x ) var(--y);
+        rotate: calc(var(--a) * 1deg + 90deg);
+    }
+}
+  /*ラジオボタンの非表示 */
+  .tab-radio {
+    display: none;
+  }
+  /* タブのメニュー部分（label部分） */
+  .tab-menu {
+    font-size: 20px;
+    float: left;
+    text-align: center;
+    padding: 1em 0;
+    width: 200px;
+    margin-left: 20px;
+  }
+  /* タブメニューにカーソルがある場合 */
+  .tab-menu:hover {
+    color: black;
+  }
+  #tab01:checked ~ #tab-menu01,
+  #tab02:checked ~ #tab-menu02,
+  #tab03:checked ~ #tab-menu{
+    color: green;
+      }
+  /* コンテンツ */
+  .tab-content-item {
+    /* コンテンツは非表示にしておく */
+    color:#ffffff;
+    text-align: center;
+    /* コンテンツは非表示にしておく */
+    border-radius: 50%;
+    display: none;
+    /* パディング */
+    /* コンテンツに収まらない場合は非表示 */
+        /* 4.スライドインのアニメーション*/
+    width: calc(var(--r) * 2px);
+    height: calc(var(--r) * 2px);
+/* 円にするためにやってる https://untype.jp/blog/202407261600*/
+    border: 125px solid #FC0303;
+/* 円にするためにやってる https://untype.jp/blog/202407261600*/
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform-origin: center -1px;
+    opacity: 0.5;
+    div {
+        width: 150px;
+        transform: translate(-17px,10px);
+        --a2: calc(var(--a) * 1deg - 90deg);
+        --x: calc(cos(var(--a2)) * (var(--r) - 35) * 1px);
+        --y: calc(sin(var(--a2)) * (var(--r) - 35) * 1px);
+        position: absolute;
+        color: #FFFFFF;
+        font: 15px Impact;
+        translate: var(--x ) var(--y);
+        rotate: calc(var(--a) * 1deg + 90deg);}
+        animation: slideInArc 0.8s ease forwards;
+        
+ }
+ #tabContent01{
+  color: #FFFFFF;
+  border: 125px #000000 solid;
+}
+#tabContent02{
+  color: #FFFFFF;
+  border: 125px #000000 solid;
+}
+#tabContent03{
+  color: #ffffff;
+  border: 125px #000000 solid;
+}
+
+
+  /* ラジオボタンがチェックされたら、それぞれに対応するコンテンツを表示
+  display:noneと対応関係になっている */
+  #tab01:checked ~ #tabContent01,
+  #tab02:checked ~ #tabContent02,
+  #tab03:checked ~ #tabContent03{
+    display: block;
+  }
+   /* tab01がチェックされたら、tab-containarにRotation1のアニメーションを起動させる*/
+  #tab01:checked ~ .tab-containar{
+    transform-origin: center;
+    animation: Rotation1 2s ease forwards;
+  }
+ #tab02:checked ~ .tab-containar{
+    transform-origin: center;
+    animation: Rotation2 2s ease forwards;
+  }
+  #tab03:checked ~ .tab-containar{
+    transform-origin: center;
+    animation: Rotation3 2s ease forwards;
+  }
+  @keyframes Rotation3 {
+    0% {
+        transform: rotate(-240deg);
+        /* 左上から小さく */
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+@keyframes Rotation2 {
+    0% {
+        transform: rotate(-210deg);
+        /* 左上から小さく */
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(30deg);
+    }
+}
+@keyframes Rotation1 {
+    0% {
+        transform: rotate(-210deg);
+        /* 左上から小さく */
+    }
+    100% {
+        transform: rotate(150deg);
+    }
+}
+    /* 要素の基本スタイル */
+/* スライドインするアニメーションの定義 */
+@keyframes slideInArc {
+    0% {
+        transform: translate(500px,-100px) scale(1.0) rotate(-360deg);
+        /* translate 元々の位置から右に500px,上に0pxからスタート
+          scale: 大きさ
+          rotate:要素の回転
+          opacity:透明度*/
+        opacity: 0;
+    }
+    50% {
+      opacity: 0;
+  }
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        /* translate 元々の位置から右に0px,上に0pxからスタート
+          scale: 大きさ
+          rotate:要素の回転
+          opacity:透明度*/
+          opacity: 10;
+    }
+}
+  /* コンテンツのPタグ */
+  .tab-content-item p {
+    padding-bottom: 1em;
+  }
+  

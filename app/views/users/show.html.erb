@@ -1,24 +1,46 @@
-<h1>users#show</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+  <div class="mypage">MY PAGE</div>
+  <div class="mypage2">－マイページ－</div>
 
-<h1>ユーザーの投稿一覧</h1>
-<% @user.tweets.each do |t| %>
-  <%= t.band_name %>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
-<% end %>
+  <div class="userss">
+    <div class="username"><%= @user.name %>のページ</div>
+    <div class="usermail"><%= @user.email %></div>
+  </div>
 
-<!-- 以下はいいね機能を実装している場合-->
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_tweets.each do |t| %>
-  <%= t.band_name %>
-  <%= image_tag t.image_url, size: "250x200" if t.image? %>
-<% end %>
-<!-- ここまで-->
+  <% if current_user.id == @user.id %>
+    <div class="editedit"><%= link_to "編集する", edit_user_registration_path %></div>
+  <% end %>
 
-<%= link_to "Tweet一覧に戻る", tweets_path %>
+
+  <%= link_to tweets_path do %>
+  <div class="replay"><%= image_tag 'リプレイ.png', class:"logo-image", width: "100px", height: "100px" %></div>
+  <% end %>
+  <div class="replayy">投稿一覧に戻る</div>
+
+
+  <details>
+    <summary>自分の投稿</summary>
+    <div class="tweets-container">
+    <% @user.tweets.each do |t| %>
+      <div class="tweet">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <p><%= t.band_name %></p>
+        <%= link_to "詳細へ", tweet_path(t.id) %>
+      </div>
+    <% end %>
+  </details>
+
+  <!-- 以下はいいね機能を実装している場合-->
+
+  <details>
+    <summary>自分がいいねした投稿</summary>
+    <div class="tweets-container">
+    <% @user.liked_tweets.each do |t| %>
+      <div class="tweet">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <p><%= t.band_name %></p>
+        <%= link_to "詳細へ", tweet_path(t.id) %>
+      </div>
+    <% end %>
+  </details>
+
